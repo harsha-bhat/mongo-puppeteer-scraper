@@ -1,7 +1,7 @@
 # mongo-puppeteer
 Scrape websites using puppeteer and save the results into MongoDB.
 
-Required MongoDB 3.6+ and Node.js 8.0+
+Requires MongoDB 3.6+ and Node.js 8.0+
 
 <b>Setup Instructions: </b>
 1. Install dependencies
