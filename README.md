@@ -1,5 +1,5 @@
-# node-grab-screens
-Grab screenshots of websites by using headless chrome
+# mongo-puppeteer
+Scrape websites using puppeteer and save the results into MongoDB.
 
 <b>Setup Instructions: </b>
 1. Install dependencies
