@@ -17,7 +17,7 @@ Grab screenshots of websites by using headless chrome
 `npm start`
 
 
-4. Screenshots will be placed into output directory.
+4. Screenshots will be placed into output directory and the mongo collection `outputs` will have the image paths.
 
 
 <b>Settings: </b>
