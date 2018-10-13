@@ -1,7 +1,7 @@
 # node-grab-screens
 Grab screenshots of websites by using headless chrome
 
-<b>Setup</b>
+<b>Setup Instructions: </b>
 1. Install dependencies
 
 `npm install`
@@ -20,6 +20,7 @@ Grab screenshots of websites by using headless chrome
 4. Screenshots will be placed into output directory.
 
 
+<b>Settings: </b>
 
 There are some settings available in `index.js`:
 
