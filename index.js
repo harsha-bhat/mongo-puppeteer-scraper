@@ -9,7 +9,7 @@ const VIEWPORT_WIDTH = 1200;
 const VIEWPORT_HEIGHT = 675;
 const NUM_IMAGES_PER_PAGE = 4;
 const IMAGE_QUALITY = 80;
-const PAGE_COUNT = 2;
+const PAGE_COUNT = 10;
 
 (async () => {
     // Launch puppeteer in headless mode
