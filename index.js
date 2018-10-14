@@ -9,13 +9,16 @@ const VIEWPORT_WIDTH = 1200;
 const VIEWPORT_HEIGHT = 675;
 const NUM_IMAGES_PER_PAGE = 4;
 const IMAGE_QUALITY = 80;
-const PAGE_COUNT = 10;
+const PAGE_COUNT = 2;
 
 (async () => {
+    // Launch puppeteer in headless mode
     const browser = await puppeteer.launch();
     
     let count = 0;
     while (true) {
+
+        // Get input data from DB
         let inputs = await Input.find({}).skip(count).limit(PAGE_COUNT);
         if (inputs.length == 0) {
             break;
@@ -25,6 +28,8 @@ const PAGE_COUNT = 10;
         let promises = [];
         for (let input of inputs) {
             console.log(input.href);
+
+            // Open a new browser page for every input
             promises.push(browser.newPage().then(async page => {
                 let output = new Output({
                     _id: input._id,
@@ -36,6 +41,8 @@ const PAGE_COUNT = 10;
                         'height': VIEWPORT_HEIGHT,
                         'width': VIEWPORT_WIDTH
                     });
+
+                    // Take screenshots
                     for (let i = 1; i <= NUM_IMAGES_PER_PAGE; i++) {
                         await page.screenshot({
                             path: "./output/" + input._id + "_" + i + ".jpg",
@@ -50,6 +57,10 @@ const PAGE_COUNT = 10;
                 } catch (err) {
                     output.error = err.toString();
                 }
+
+                // Close page to free memory and save results to DB
+                await page.goto('about:blank');
+                await page.close();
                 await output.save();
             }));
         }
